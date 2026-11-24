@@ -25,7 +25,7 @@ local function drawModel()
 end
 
 local function drawTelemetry()
-  local rssi = getRSSI and getRSSI() or 0
+  local rssi = tonumber(getRSSI and getRSSI()) or 0
   lcd.drawText(4, 16, "LINK", SMLSIZE)
   lcd.drawText(4, 28, rssi > 0 and ("RSSI " .. rssi) or "No signal")
   lcd.drawText(4, 43, "Check receiver link", SMLSIZE)

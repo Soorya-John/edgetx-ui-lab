@@ -32,6 +32,8 @@ assert(tool.run(EVT_VIRTUAL_ENTER) == 0 and includes("Pocket test model"))
 tool.run(EVT_VIRTUAL_EXIT)
 tool.run(EVT_VIRTUAL_NEXT)
 assert(tool.run(EVT_VIRTUAL_ENTER) == 0 and includes("No signal"))
+getRSSI = function() return nil end
+assert(tool.run(0) == 0 and includes("No signal"))
 tool.run(EVT_VIRTUAL_EXIT)
 tool.run(EVT_VIRTUAL_NEXT)
 assert(tool.run(EVT_VIRTUAL_ENTER) == 0 and includes("2.12"))
