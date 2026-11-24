@@ -29,6 +29,8 @@ assert(tool.run(EVT_VIRTUAL_ENTER) == 0 and includes("CURRENT MODEL"))
 assert(tool.run(EVT_VIRTUAL_EXIT) == 0 and includes("EXPLORE"))
 tool.run(EVT_VIRTUAL_NEXT)
 assert(tool.run(EVT_VIRTUAL_ENTER) == 0 and includes("Pocket test model"))
+model.getInfo = function() return nil end
+assert(tool.run(0) == 0 and includes("No model"))
 tool.run(EVT_VIRTUAL_EXIT)
 tool.run(EVT_VIRTUAL_NEXT)
 assert(tool.run(EVT_VIRTUAL_ENTER) == 0 and includes("No signal"))
