@@ -25,6 +25,9 @@ end
 
 tool.init()
 assert(tool.run(0) == 0 and includes("EXPLORE"))
+tool.run(EVT_VIRTUAL_PREV)
+assert(tool.run(EVT_VIRTUAL_ENTER) == 0 and includes("RADIO"))
+tool.init()
 assert(tool.run(EVT_VIRTUAL_ENTER) == 0 and includes("CURRENT MODEL"))
 assert(tool.run(EVT_VIRTUAL_EXIT) == 0 and includes("EXPLORE"))
 tool.run(EVT_VIRTUAL_NEXT)
