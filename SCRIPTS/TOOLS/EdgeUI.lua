@@ -9,9 +9,11 @@ local function drawHeader(title)
 end
 
 local function drawHome()
-  lcd.drawText(4, 14, "EDGE UI", DBLSIZE)
-  lcd.drawText(4, 34, "A clearer radio workspace")
-  lcd.drawText(4, 47, "Press ENT to explore")
+  local info = model and model.getInfo and model.getInfo()
+  lcd.drawText(4, 15, "CURRENT MODEL", SMLSIZE)
+  lcd.drawText(4, 26, string.sub(info and info.name or "No model", 1, 19))
+  lcd.drawLine(4, 40, 123, 40, SOLID, 0)
+  lcd.drawText(4, 44, "RTN menu", SMLSIZE)
 end
 
 local function drawModel()
@@ -84,3 +86,4 @@ local function run(event)
 end
 
 return { init = init, run = run }
+
