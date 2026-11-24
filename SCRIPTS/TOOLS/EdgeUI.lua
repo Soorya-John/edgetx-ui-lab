@@ -29,6 +29,13 @@ local function drawTelemetry()
   lcd.drawText(4, 43, "Check receiver link", SMLSIZE)
 end
 
+local function drawRadio()
+  local version, radio = getVersion()
+  lcd.drawText(4, 16, "FIRMWARE", SMLSIZE)
+  lcd.drawText(4, 27, version or "Unknown")
+  lcd.drawText(4, 43, radio or "Radio", SMLSIZE)
+end
+
 local function drawList()
   for index, title in ipairs(screens) do
     local y = 13 + (index - 1) * 11
@@ -65,6 +72,8 @@ local function run(event)
     drawModel()
   elseif page == 3 then
     drawTelemetry()
+  elseif page == 4 then
+    drawRadio()
   elseif page == 0 then
     drawList()
   else
