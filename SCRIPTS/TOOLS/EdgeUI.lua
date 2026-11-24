@@ -22,6 +22,13 @@ local function drawModel()
   lcd.drawText(4, 43, "Read-only preview", SMLSIZE)
 end
 
+local function drawTelemetry()
+  local rssi = getRSSI and getRSSI() or 0
+  lcd.drawText(4, 16, "LINK", SMLSIZE)
+  lcd.drawText(4, 28, rssi > 0 and ("RSSI " .. rssi) or "No signal")
+  lcd.drawText(4, 43, "Check receiver link", SMLSIZE)
+end
+
 local function drawList()
   for index, title in ipairs(screens) do
     local y = 13 + (index - 1) * 11
@@ -56,6 +63,8 @@ local function run(event)
     drawHome()
   elseif page == 2 then
     drawModel()
+  elseif page == 3 then
+    drawTelemetry()
   elseif page == 0 then
     drawList()
   else
