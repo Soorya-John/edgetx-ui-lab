@@ -18,7 +18,7 @@ local function drawModel()
   local info = model and model.getInfo and model.getInfo()
   local name = info and info.name or "No model"
   lcd.drawText(4, 16, "ACTIVE MODEL", SMLSIZE)
-  lcd.drawText(4, 27, name)
+  lcd.drawText(4, 27, string.sub(name, 1, 19))
   lcd.drawText(4, 43, "Read-only preview", SMLSIZE)
 end
 
