@@ -13,3 +13,13 @@ Use a simulator model with RF modules off when exploring the interface. The tool
 The four pages are Home, Model, Telemetry and Radio. Home and Model show the active model name. Telemetry shows the RSSI value exposed by EdgeTX or a no-signal state. Radio shows the EdgeTX version and radio identifier.
 
 This is a foundation for discussing hierarchy, typography and navigation. It does not replace the EdgeTX firmware interface.
+
+## Run the smoke test
+
+From the repository root, run the following with Lua 5.2 installed.
+
+```sh
+lua tests/smoke.lua
+```
+
+The test uses mocked EdgeTX APIs to check menu navigation, missing model data and the no-signal display.
